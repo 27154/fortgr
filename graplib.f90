@@ -9,7 +9,7 @@
       
       icolor = -1  ! Preto
       iobj = 0     ! Contador de objetos
-      npix = 0     ! [NOVO] Contador de pixels
+      npix = 0     ! Contador de pixels
       
       RETURN
       END SUBROUTINE gINIT
