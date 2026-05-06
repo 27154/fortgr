@@ -1,0 +1,5 @@
+!     fgraph.fd (Versão Gnuplot)
+      INTEGER*4     iunit, icolor, iobj, ipix, npix
+      PARAMETER     (iunit=10, ipix=11)
+      REAL*8        xwind,ywind,xwndo,ywndo
+      COMMON /GCOM1/ xwind,ywind,xwndo,ywndo,icolor, iobj, npix
