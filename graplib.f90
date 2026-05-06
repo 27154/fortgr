@@ -1,5 +1,5 @@
 ! =======================================================
-!     graphlib.f90 (Versão Inteligente Híbrida)
+!     graphlib.f90
 ! =======================================================
       SUBROUTINE gINIT
       INCLUDE 'fgraph.fd'
@@ -84,29 +84,24 @@
       RETURN
       END SUBROUTINE MAXVIEW
 
-! =======================================================
-      
-!     [LÓGICA INTELIGENTE]
+! =======================================================    
 !     Se tiver pixels (npix > 0), plota o arquivo de pixels.
 !     Se nao tiver pixels (so linhas), plota 1/0 para ativar o grafico.
-      
 ! =======================================================
       SUBROUTINE gEND
       INCLUDE 'fgraph.fd'
       
       CLOSE(ipix)
-
-!     [CORREÇÃO]: Comentei a linha abaixo. 
-!     Isso libera o Gnuplot para escolher a melhor escala visual.
+!    
 !     WRITE(iunit, *) 'set size ratio -1' 
       
       IF (npix .GT. 0) THEN
-!        Se for fractal/imagem, ai sim usamos ratio -1 para nao distorcer
+!        Se for fractal/imagem, ratio -1 para nao distorcer
          WRITE(iunit, *) 'set size ratio -1'
          WRITE(iunit, *) 'plot "pixels.dat" using 1:2:3 with dots', &
      &   ' lc variable notitle'
       ELSE
-!        Se for funcao normal (linhas), deixamos a escala livre (auto)
+!        Se for funcao normal (linhas).
          WRITE(iunit, *) 'set size noratio'
          WRITE(iunit, *) 'plot 1/0 notitle'
       END IF
@@ -118,7 +113,7 @@
       END SUBROUTINE gEND
 
 ! =======================================================
-!    Funções Dummy 
+!  Dummy 
 ! =======================================================
       SUBROUTINE VIEWPORT(x1,y1,x2,y2)
          REAL*8 x1, y1, x2, y2
